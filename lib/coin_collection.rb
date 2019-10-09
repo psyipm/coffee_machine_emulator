@@ -21,7 +21,7 @@ class CoinCollection
     coins[coin.value] += 1
   end
 
-  def chargeback(values)
+  def refund(values)
     values.each { |item| take(item) }
   end
 

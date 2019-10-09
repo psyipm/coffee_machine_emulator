@@ -64,7 +64,7 @@ class Machine
     return_change(user_coins.sum - payment_amount)
   rescue NotEnoughCoinsError => _e
     puts 'Error! Unable to return change.'
-    puts "Please, take your money: #{coins.chargeback user_coins}"
+    puts "Please, take your money: #{coins.refund user_coins}"
   end
 
   def return_change(change_amount)

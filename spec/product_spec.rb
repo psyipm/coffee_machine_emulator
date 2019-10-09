@@ -7,7 +7,7 @@ RSpec.describe Product do
   let(:description) { "#{product.id}: #{product.title}, $#{product.price / 100.0}" }
 
   it 'should return description' do
-    expect(product.description).to eq description
+    expect(product.description).to include(description)
   end
 
   it 'should decrease remaining count' do

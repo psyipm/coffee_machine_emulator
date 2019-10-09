@@ -11,20 +11,15 @@ RSpec.describe CoinCollection do
   it 'should calculate total amount' do
     expect(collection.total).to eq 0
 
-    collection.add p50
+    collection.upload [50]
     expect(collection.total).to eq 50
 
-    collection.add p50
-    expect(collection.total).to eq 100
-
-    collection.add p50
-    collection.add p5
-    collection.add p10
-    expect(collection.total).to eq 165
+    collection.upload [50, 5, 10]
+    expect(collection.total).to eq 115
   end
 
   it 'should remove coin' do
-    collection.add(p10)
+    collection.upload [10]
 
     expect(collection.total).to eq 10
     expect(collection.take(10)).to eq 10
@@ -35,7 +30,7 @@ RSpec.describe CoinCollection do
 
   it 'should return coins' do
     collection.upload([50, 50, 10])
-    collection.chargeback([50, 10])
+    collection.refund([50, 10])
 
     expect(collection.total).to eq 50
   end

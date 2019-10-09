@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'product'
 require 'product_collection'
 
 RSpec.describe ProductCollection do
